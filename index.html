@@ -17,6 +17,53 @@ body {
   background-color: #f6f6f6;
   line-height: 1.6;
 }
+/* ===== 背景发光变形物体 ===== */
+.background-blob {
+  position: fixed;             /* 固定在视口，不跟着滚动 */
+  inset: -10%;                 /* 比屏幕稍大一点，避免边缘露出 */
+  margin: auto;                /* 在视口中心附近 */
+  width: 600px;
+  height: 600px;
+
+  /* 一个从中心发散的白色光晕 */
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(255, 255, 255, 0)
+  );
+
+  filter: blur(35px);          /* 模糊让光晕更加柔和 */
+  opacity: 0.8;                /* 整体稍微透明一点 */
+  mix-blend-mode: screen;      /* 和背景叠加时更像发光效果（支持的浏览器会更好看） */
+
+  animation: blobMorph 22s ease-in-out infinite alternate;
+  pointer-events: none;        /* 不拦截鼠标事件，点击不会被挡住 */
+  z-index: -1;                 /* 放在所有内容的后面 */
+}
+
+/* 让这个白色物体不断变形的动画 */
+@keyframes blobMorph {
+  0% {
+    transform: translate(-10%, -5%) scale(1);
+    border-radius: 60% 40% 65% 35% / 55% 60% 40% 45%;
+  }
+  25% {
+    transform: translate(15%, -10%) scale(1.1);
+    border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  }
+  50% {
+    transform: translate(5%, 10%) scale(0.95);
+    border-radius: 55% 45% 40% 60% / 60% 50% 50% 40%;
+  }
+  75% {
+    transform: translate(-15%, 5%) scale(1.05);
+    border-radius: 45% 55% 60% 40% / 45% 55% 60% 40%;
+  }
+  100% {
+    transform: translate(0%, 0%) scale(1.08);
+    border-radius: 50% 50% 45% 55% / 55% 45% 50% 50%;
+  }
+}
 
     a {
       color: inherit;
@@ -26,6 +73,12 @@ body {
       max-width: 100%;
       display: block;
     }
+<body>
+  <!-- 发光变形背景物体 -->
+  <div class="background-blob"></div>
+
+  <!-- 顶部导航 -->
+  <header>
 
     /* ===== 顶部导航 ===== */
     header {
@@ -104,29 +157,52 @@ body {
       flex-wrap: wrap;
       gap: 0.75rem;
     }
-    .btn-primary,
-    .btn-ghost {
-      font-size: 0.9rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid #222;
-      background: #222;
-      color: #fff;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .btn-ghost {
-      background: transparent;
-      color: #222;
-    }
-    .btn-primary:hover {
-      background: #000;
-    }
-    .btn-ghost:hover {
-      background: #eee;
-    }
+    /* ===== 磨砂玻璃按钮 ===== */
+.btn-primary,
+.btn-ghost {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);   /* 半透明白色边框 */
+  background: rgba(255, 255, 255, 0.16);        /* 透明度较高的白色背景 */
+  color: #111;                                  /* 深色文字 */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+
+  backdrop-filter: blur(18px);                  /* 核心：磨砂玻璃的模糊效果 */
+  -webkit-backdrop-filter: blur(18px);          /* 为了兼容 Safari */
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);  /* 阴影让按钮漂浮起来 */
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* 主按钮：稍微更实一点的玻璃 */
+.btn-primary {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.btn-primary:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* 次按钮：更轻的玻璃态（更透明） */
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.10);
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.20);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+}
+
     .hero-photo {
       justify-self: center;
       width: 220px;

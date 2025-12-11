@@ -284,4 +284,310 @@
 
     .section-title span {
       font-size: 0.75rem;
-      text-
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #aaaae0;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0.05)
+      );
+      margin-bottom: 1.5rem;
+    }
+
+    /* ===== About 区 ===== */
+    .about-text {
+      font-size: 0.95rem;
+      color: #e0e0f0;
+      max-width: 60ch;
+    }
+
+    /* ===== Projects 区 ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .project-image {
+      border-radius: 0.8rem;
+      background: radial-gradient(
+        circle at 30% 10%,
+        rgba(255, 255, 255, 0.2),
+        rgba(20, 20, 40, 0.95)
+      );
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #c4c4dd;
+    }
+
+    .project-name {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .project-meta {
+      font-size: 0.8rem;
+      color: #b0b0c8;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #e4e4f2;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.25rem;
+    }
+
+    .project-link {
+      font-size: 0.85rem;
+      margin-top: auto;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    /* ===== Contact 区 ===== */
+    .contact-box {
+      padding: 1.25rem;
+      max-width: 460px;
+    }
+
+    .contact-row {
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.35rem 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.18);
+    }
+
+    .contact-row:last-child {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      color: #b0b0c8;
+      font-size: 0.85rem;
+    }
+
+    /* ===== 页脚 ===== */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #a0a0c0;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 720px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-photo {
+        order: -1;
+        width: 170px;
+        height: 170px;
+        margin-bottom: 0.5rem;
+      }
+
+      .nav-inner {
+        padding-inline: 1rem;
+      }
+
+      main {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 发光变形背景物体 -->
+  <div class="background-blob"></div>
+
+  <!-- 顶部导航 -->
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        YIWEN ZHAO
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main>
+    <!-- Hero 区 -->
+    <section class="hero">
+      <div>
+        <h1 class="hero-title">
+          Design for CARE.
+        </h1>
+        <p class="hero-subtitle">
+          Yiwen (Ollie) Zhao · Architectural & interdisciplinary designer currently
+          working across spatial design, interaction, and speculative futures.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Architecture</span>
+          <span class="tag">Interaction Design</span>
+          <span class="tag">Healthcare & Accessibility</span>
+          <span class="tag">Speculative Scenarios</span>
+        </div>
+        <div class="hero-links">
+          <a href="#projects" class="btn-primary">View projects →</a>
+          <a href="#contact" class="btn-ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <!-- 之后可以替换为你的头像图片 -->
+        Upload your photo here<br />or keep this as a placeholder.
+      </div>
+    </section>
+
+    <!-- About 区 -->
+    <section id="about">
+      <div class="section-title">
+        <span>ABOUT</span> About Yiwen
+      </div>
+      <div class="section-divider"></div>
+      <p class="about-text">
+        I am Yiwen (Ollie) Zhao, an interdisciplinary designer with a background in
+        architecture and design engineering. My practice moves between spatial
+        research, healthcare environments, disability & accessibility, and
+        interactive storytelling. I am interested in how design can reframe
+        everyday systems — from hospital rehabilitation spaces to digital
+        interfaces — to better support vulnerable bodies and diverse ways of
+        experiencing the world.
+      </p>
+    </section>
+
+    <!-- Projects 区 -->
+    <section id="projects">
+      <div class="section-title">
+        <span>PROJECTS</span> Selected Work
+      </div>
+      <div class="section-divider"></div>
+      <div class="projects-grid">
+        <!-- 项目 1 -->
+        <article class="project-card glass-panel">
+          <div class="project-image">
+            Project image / mockup
+          </div>
+          <div class="project-name">Squish – Tactile AI Co-creation Interface</div>
+          <div class="project-meta">2025 · Interaction / Tangible Interface</div>
+          <p class="project-desc">
+            A soft, squeezable interface that translates embodied gestures into AI
+            prompts, challenging purely text-based creative workflows and opening
+            up more inclusive, sensory ways of co-creating with AI.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Tangible UI</span>
+            <span class="tag">Generative AI</span>
+            <span class="tag">Embodied Interaction</span>
+          </div>
+        </article>
+
+        <!-- 项目 2 -->
+        <article class="project-card glass-panel">
+          <div class="project-image">
+            Project image / mockup
+          </div>
+          <div class="project-name">Stroke Rehab Hospital Spatial Study</div>
+          <div class="project-meta">2024 · Spatial Research / Healthcare</div>
+          <p class="project-desc">
+            Ethnographic research and design strategies for stroke rehabilitation
+            environments, focusing on privacy, surveillance, and patients’
+            psychological recovery within contemporary hospital architectures.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Healthcare Design</span>
+            <span class="tag">Ethnography</span>
+            <span class="tag">Spatial Strategy</span>
+          </div>
+        </article>
+
+        <!-- 项目 3 -->
+        <article class="project-card glass-panel">
+          <div class="project-image">
+            Project image / mockup
+          </div>
+          <div class="project-name">Bio-Track Forensics Kit 2035</div>
+          <div class="project-meta">2025 · Speculative / Critical Design</div>
+          <p class="project-desc">
+            A speculative toolkit for future forensic investigators, exploring
+            organ trafficking, AI profiling, and bias-detection tools to question
+            power, truth, and responsibility at future crime scenes.
+          </p>
+          <div class="project-tags">
+            <span class="tag">Speculative Design</span>
+            <span class="tag">Future Scenarios</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact 区 -->
+    <section id="contact">
+      <div class="section-title">
+        <span>CONTACT</span> Let’s talk
+      </div>
+      <div class="section-divider"></div>
+      <div class="contact-box glass-panel">
+        <div class="contact-row">
+          <div class="contact-label">Email</div>
+          <div><a href="mailto:youremail@example.com">youremail@example.com</a></div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Location</div>
+          <div>London, UK</div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-label">Portfolio / CV</div>
+          <div>
+            <a href="#" target="_blank" rel="noreferrer">Download CV (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer>
+    © <span id="year"></span> Yiwen Zhao · All rights reserved.
+  </footer>
+
+  <script>
+    // 自动填当前年份
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
